@@ -47,6 +47,8 @@ test('collection filters and sort survive a static direct-link refresh', async (
   await page
     .getByRole('combobox', { name: 'Sort products' })
     .selectOption('price-asc');
+  await expect(page).toHaveURL(/q=wallet/);
+  await expect(page).toHaveURL(/sort=price-asc/);
   await page.reload();
   await expect(
     page.getByRole('searchbox', { name: 'Search products' }),
