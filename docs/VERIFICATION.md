@@ -33,3 +33,9 @@ This is a finite fixture shop with local state. It does not implement payments, 
 Verified on 2026-11-03 at https://khalilbenali1.github.io/atelier-no8-nuxt/ after the passing [Pages release workflow](https://github.com/khalilBenAli1/atelier-no8-nuxt/actions/runs/41569965587).
 
 Anonymous HTTP returned 200. All 7 Chromium browser scenarios passed against the actual public site with retries disabled, covering all 8 product HTML routes, deliberate 404 behavior, rapid URL filters, persistent bag, checkout reload/privacy, long-text wrapping, gallery/menu keyboard behavior, a complete keyboard-only checkout and automated accessibility checks. All 8 actual public-site capture cases report zero runtime errors, hydration-mismatch warnings, failed images and horizontal overflow.
+
+## Email format maintenance
+
+Negative unit regressions first confirmed that `alex<smith>@example.com` and `alex,smith@example.com` advanced through the original format check. A small supported unquoted-local-part character guard now rejects those formats while retaining the existing outer trimming, raw 254-character limit, domain-shape check, international names, country and consent rules. Plus/dot and apostrophe addresses retain their existing behavior. This is a bounded format check, not DNS, deliverability or full-RFC validation.
+
+After this change, lint, formatting, strict Nuxt analysis, production generation and all 15 unit/store tests passed locally. No interface, persistence, pricing or image changes were made.
