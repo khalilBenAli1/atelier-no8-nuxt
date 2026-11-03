@@ -1,0 +1,41 @@
+@import '@fontsource/cormorant-garamond/latin-400.css';
+@import '@fontsource/cormorant-garamond/latin-400-italic.css';
+@import '@fontsource/dm-sans/latin-400.css';
+@import '@fontsource/dm-sans/latin-500.css';
+:root {
+  color: #2e261f;
+  background: #f7f4ed;
+  font-family: 'DM Sans', sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+a {
+  color: inherit;
+}
+h1,
+h2,
+h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+}
+main {
+  max-width: 1350px;
+  margin: 50px auto;
+  padding: 30px;
+}
+h1 {
+  font-size: clamp(48px, 6vw, 90px);
+}
+button,
+input,
+select {
+  font: inherit;
+}
+:focus-visible {
+  outline: 2px solid #6e503a;
+  outline-offset: 5px;
+}

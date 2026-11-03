@@ -1,0 +1,38 @@
+{
+  "tool": "Built-in ImageGen",
+  "created": "2026-11-03",
+  "prompts": [
+    {
+      "name": "form-shoulder",
+      "prompt": "Use case: product-mockup. Asset type: original e-commerce product photograph for fictional accessories brand Atelier No.8. Create a single portrait 4:5 editorial studio photograph of one soft ivory leather shoulder bag with a gently curved hobo silhouette, a short adjustable leather strap and discreet brushed brass rings, clean center seam. Product is unbranded, beautifully crafted, clearly one object centered and fully visible with generous margins, resting on a pale limestone slab against softly draped warm oatmeal linen. Natural tactile leather grain and fine stitching. Restrained elegant hardware. Warm soft side daylight, subtle shadow, ivory/mocha palette, magazine-quality real product photography, camera close enough to show material detail. No people, no hands, no words, no logos, no watermarks, no extra accessories, no collage, no UI. Do not crop the product or strap outside the frame."
+    },
+    {
+      "name": "daily-tote",
+      "prompt": "Use case: product-mockup. Asset type: original e-commerce product photograph for fictional accessories brand Atelier No.8. Create a single portrait 4:5 editorial studio photograph of one large caramel leather tote bag with two long slender handles, structured rectangular silhouette, open-top silhouette, subtle brass fittings. Product is unbranded, beautifully crafted, clearly one object centered and fully visible with generous margins, resting on a pale limestone slab against softly draped warm oatmeal linen. Natural tactile leather grain and fine stitching. Restrained elegant hardware. Warm soft side daylight, subtle shadow, ivory/mocha palette, magazine-quality real product photography, camera close enough to show material detail. No people, no hands, no words, no logos, no watermarks, no extra accessories, no collage, no UI. Do not crop the product or strap outside the frame."
+    },
+    {
+      "name": "arc-mini",
+      "prompt": "Use case: product-mockup. Asset type: original e-commerce product photograph for fictional accessories brand Atelier No.8. Create a single portrait 4:5 editorial studio photograph of one small espresso brown leather top-handle handbag with a softly rounded arch top, structured body and minimal brass clasp. Product is unbranded, beautifully crafted, clearly one object centered and fully visible with generous margins, resting on a pale limestone slab against softly draped warm oatmeal linen. Natural tactile leather grain and fine stitching. Restrained elegant hardware. Warm soft side daylight, subtle shadow, ivory/mocha palette, magazine-quality real product photography, camera close enough to show material detail. No people, no hands, no words, no logos, no watermarks, no extra accessories, no collage, no UI. Do not crop the product or strap outside the frame."
+    },
+    {
+      "name": "fold-clutch",
+      "prompt": "Use case: product-mockup. Asset type: original e-commerce product photograph for fictional accessories brand Atelier No.8. Create a single portrait 4:5 editorial studio photograph of one folded mocha brown leather envelope clutch with gently rounded corners, a subtle central fold and no shoulder strap. Product is unbranded, beautifully crafted, clearly one object centered and fully visible with generous margins, resting on a pale limestone slab against softly draped warm oatmeal linen. Natural tactile leather grain and fine stitching. Restrained elegant hardware. Warm soft side daylight, subtle shadow, ivory/mocha palette, magazine-quality real product photography, camera close enough to show material detail. No people, no hands, no words, no logos, no watermarks, no extra accessories, no collage, no UI. Do not crop the product or strap outside the frame."
+    },
+    {
+      "name": "soft-crossbody",
+      "prompt": "Use case: product-mockup. Asset type: original e-commerce product photograph for fictional accessories brand Atelier No.8. Create a single portrait 4:5 editorial studio photograph of one chestnut leather crossbody bag with an adjustable long strap, a compact rounded rectangular body and understated brushed brass buckle. Product is unbranded, beautifully crafted, clearly one object centered and fully visible with generous margins, resting on a pale limestone slab against softly draped warm oatmeal linen. Natural tactile leather grain and fine stitching. Restrained elegant hardware. Warm soft side daylight, subtle shadow, ivory/mocha palette, magazine-quality real product photography, camera close enough to show material detail. No people, no hands, no words, no logos, no watermarks, no extra accessories, no collage, no UI. Do not crop the product or strap outside the frame."
+    },
+    {
+      "name": "line-wallet",
+      "prompt": "Use case: product-mockup. Asset type: original e-commerce product photograph for fictional accessories brand Atelier No.8. Create a single portrait 4:5 editorial studio photograph of one slim espresso brown leather bifold wallet, upright slightly open so its neat card slots and stitched edge are visible. Product is unbranded, beautifully crafted, clearly one object centered and fully visible with generous margins, resting on a pale limestone slab against softly draped warm oatmeal linen. Natural tactile leather grain and fine stitching. Restrained elegant hardware. Warm soft side daylight, subtle shadow, ivory/mocha palette, magazine-quality real product photography, camera close enough to show material detail. No people, no hands, no words, no logos, no watermarks, no extra accessories, no collage, no UI. Do not crop the product or strap outside the frame."
+    },
+    {
+      "name": "loop-pouch",
+      "prompt": "Use case: product-mockup. Asset type: original e-commerce product photograph for fictional accessories brand Atelier No.8. Create a single portrait 4:5 editorial studio photograph of one small ivory leather zip pouch with a neat matching wrist loop, softly rounded rectangular form and discreet brass zip. Product is unbranded, beautifully crafted, clearly one object centered and fully visible with generous margins, resting on a pale limestone slab against softly draped warm oatmeal linen. Natural tactile leather grain and fine stitching. Restrained elegant hardware. Warm soft side daylight, subtle shadow, ivory/mocha palette, magazine-quality real product photography, camera close enough to show material detail. No people, no hands, no words, no logos, no watermarks, no extra accessories, no collage, no UI. Do not crop the product or strap outside the frame."
+    },
+    {
+      "name": "travel-case",
+      "prompt": "Use case: product-mockup. Asset type: original e-commerce product photograph for fictional accessories brand Atelier No.8. Create a single portrait 4:5 editorial studio photograph of one tan leather travel wash case with a rounded rectangular body, single top brass zipper and a small side carrying loop. Product is unbranded, beautifully crafted, clearly one object centered and fully visible with generous margins, resting on a pale limestone slab against softly draped warm oatmeal linen. Natural tactile leather grain and fine stitching. Restrained elegant hardware. Warm soft side daylight, subtle shadow, ivory/mocha palette, magazine-quality real product photography, camera close enough to show material detail. No people, no hands, no words, no logos, no watermarks, no extra accessories, no collage, no UI. Do not crop the product or strap outside the frame."
+    }
+  ]
+}
