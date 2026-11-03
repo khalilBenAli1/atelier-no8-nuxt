@@ -1,17 +1,43 @@
-@import '@fontsource/cormorant-garamond/latin-400.css';
-@import '@fontsource/cormorant-garamond/latin-400-italic.css';
-@import '@fontsource/dm-sans/latin-400.css';
-@import '@fontsource/dm-sans/latin-500.css';
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('@fontsource/playfair-display/files/playfair-display-latin-400-normal.woff2')
+    format('woff2');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('@fontsource/playfair-display/files/playfair-display-latin-400-italic.woff2')
+    format('woff2');
+}
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('@fontsource/jost/files/jost-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('@fontsource/jost/files/jost-latin-500-normal.woff2') format('woff2');
+}
 :root {
   --paper: #f7f4ed;
   --ink: #30271f;
   --muted: #6b5d4e;
   --line: #d9d0c2;
   --soft: #ece5da;
-  --serif: 'Cormorant Garamond', Georgia, serif;
+  --serif: 'Playfair Display', Georgia, serif;
   color: var(--ink);
   background: var(--paper);
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Jost', sans-serif;
   font-size: 14px;
   font-synthesis: none;
 }
@@ -244,52 +270,6 @@ h2:focus {
 .mobile-menu {
   display: none;
 }
-.home-hero {
-  display: grid;
-  grid-template-columns: 0.85fr 1.45fr;
-  gap: 56px;
-  padding-top: 45px;
-  align-items: center;
-}
-.hero-copy {
-  padding: 40px 0 35px;
-}
-.hero-copy h1 {
-  margin-block: 42px 30px;
-}
-.hero-copy > p:not(.eyebrow) {
-  color: var(--muted);
-  font-size: 15px;
-}
-.hero-copy .text-link {
-  margin-top: 30px;
-}
-.hero-footnote {
-  display: block;
-  margin-top: 78px;
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--muted);
-}
-.hero-art {
-  position: relative;
-  overflow: hidden;
-  height: 620px;
-  background: var(--soft);
-}
-.hero-art img {
-  height: 100%;
-  object-fit: cover;
-}
-.image-label {
-  position: absolute;
-  bottom: 26px;
-  left: 28px;
-  background: var(--paper);
-  padding: 13px 17px;
-  font-size: 11px;
-}
 .section-heading {
   display: flex;
   justify-content: space-between;
@@ -386,38 +366,6 @@ h2:focus {
   width: 8px;
   border-radius: 50%;
   display: inline-block;
-}
-.editorial-feature {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: #e9e1d4;
-}
-.editorial-feature > img {
-  height: 700px;
-  object-fit: cover;
-  object-position: center 60%;
-}
-.editorial-feature > div {
-  padding: 80px clamp(40px, 6vw, 110px);
-  align-self: center;
-}
-.editorial-feature h2 {
-  margin-block: 30px;
-}
-.editorial-feature p:not(.eyebrow) {
-  color: var(--muted);
-  max-width: 340px;
-  margin-bottom: 25px;
-}
-.story-invitation {
-  text-align: center;
-  padding-block: 120px;
-}
-.story-invitation h2 {
-  margin-block: 30px;
-}
-.story-invitation .text-link {
-  min-width: 220px;
 }
 .site-footer {
   background: var(--ink);
@@ -1158,12 +1106,6 @@ details p {
   margin-top: 25px;
 }
 @media (min-width: 1600px) {
-  .hero-art {
-    height: 690px;
-  }
-  .hero-copy h1 {
-    font-size: 110px;
-  }
 }
 @media (max-width: 1100px) {
   .desktop-nav {
@@ -1183,19 +1125,6 @@ details p {
   }
   .wordmark span {
     font-size: 27px;
-  }
-  .home-hero {
-    gap: 25px;
-    grid-template-columns: 0.9fr 1.1fr;
-  }
-  .hero-art {
-    height: 550px;
-  }
-  .hero-copy h1 {
-    font-size: 76px;
-  }
-  .hero-footnote {
-    margin-top: 55px;
   }
   .product-layout {
     gap: 35px;
@@ -1235,12 +1164,6 @@ details p {
   .footer-note {
     display: none;
   }
-  .editorial-feature > img {
-    height: 630px;
-  }
-  .editorial-feature > div {
-    padding: 50px;
-  }
   .checkout-grid {
     gap: 50px;
   }
@@ -1265,28 +1188,6 @@ details p {
   .product-meta {
     display: flex;
   }
-  .home-hero {
-    grid-template-columns: 1fr 1.1fr;
-  }
-  .hero-copy h1 {
-    font-size: 65px;
-  }
-  .hero-art {
-    height: 500px;
-  }
-  .hero-copy > .eyebrow {
-    font-size: 8px;
-  }
-  .hero-copy > p:not(.eyebrow) {
-    font-size: 12px;
-  }
-  .hero-copy .text-link {
-    gap: 25px;
-  }
-  .hero-footnote {
-    font-size: 8px;
-    margin-top: 40px;
-  }
   .section {
     padding-block: 80px;
   }
@@ -1295,15 +1196,6 @@ details p {
   }
   .section-heading > div:last-child {
     max-width: 260px;
-  }
-  .editorial-feature > div {
-    padding: 35px;
-  }
-  .editorial-feature h2 {
-    font-size: 45px;
-  }
-  .editorial-feature > img {
-    height: 600px;
   }
   .collection-tools {
     gap: 18px;
@@ -1391,49 +1283,6 @@ details p {
   .bag-trigger svg {
     width: 21px;
   }
-  .home-hero {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    padding-top: 0;
-    gap: 0;
-  }
-  .hero-copy {
-    padding: 38px 0 35px;
-  }
-  .hero-copy > .eyebrow {
-    font-size: 8px;
-  }
-  .hero-copy h1 {
-    font-size: 70px;
-    line-height: 0.98;
-    margin-block: 25px 20px;
-  }
-  .hero-copy > p:not(.eyebrow) {
-    font-size: 12px;
-  }
-  .hero-copy .text-link {
-    margin-top: 18px;
-    min-width: 235px;
-    font-size: 11px;
-  }
-  .hero-footnote {
-    display: none;
-  }
-  .hero-art {
-    height: 360px;
-    width: calc(100% + 40px);
-    margin-left: -20px;
-  }
-  .hero-art img {
-    object-fit: cover;
-  }
-  .image-label {
-    left: 20px;
-    bottom: 20px;
-    font-size: 10px;
-    padding: 10px 13px;
-  }
   .section {
     padding-block: 65px;
   }
@@ -1499,35 +1348,6 @@ details p {
     padding: 6px;
     left: 6px;
     bottom: 8px;
-  }
-  .editorial-feature {
-    display: block;
-  }
-  .editorial-feature > img {
-    height: 430px;
-  }
-  .editorial-feature > div {
-    padding: 45px 25px 55px;
-  }
-  .editorial-feature h2 {
-    font-size: 52px;
-    margin-block: 22px;
-  }
-  .editorial-feature p:not(.eyebrow) {
-    font-size: 12px;
-  }
-  .story-invitation {
-    padding-block: 70px;
-  }
-  .story-invitation > .eyebrow {
-    font-size: 8px;
-  }
-  .story-invitation h2 {
-    font-size: 45px;
-    margin-block: 22px;
-  }
-  .story-invitation .text-link {
-    font-size: 11px;
   }
   .site-footer {
     padding-top: 45px;
@@ -1949,5 +1769,232 @@ details p {
   .gallery-thumbs > button {
     width: 40px;
     background: var(--paper);
+  }
+}
+
+.campaign-opening {
+  padding-top: 38px;
+}
+.campaign-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+.campaign-heading .eyebrow {
+  margin-bottom: 20px;
+}
+.campaign-heading h1 {
+  font-size: 64px;
+  line-height: 1.1;
+  margin-bottom: 18px;
+  letter-spacing: -0.04em;
+}
+.campaign-heading h1 br {
+  display: none;
+}
+.campaign-heading p:last-child {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.campaign-edit {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.campaign-edit .product-picture {
+  aspect-ratio: auto;
+  height: 430px;
+}
+.campaign-edit .product-picture img {
+  object-fit: contain;
+}
+.campaign-edit .product-meta h3 {
+  font-size: 25px;
+}
+.campaign-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 25px;
+}
+.campaign-footer .eyebrow {
+  font-size: 9px;
+}
+.campaign-footer .text-link {
+  padding-block: 10px;
+  border: 0;
+  font-size: 11px;
+}
+.atelier-statement {
+  background: var(--soft);
+  padding: 80px 0;
+  text-align: center;
+}
+.atelier-number {
+  font: italic 38px var(--serif);
+  display: block;
+  margin-bottom: 25px;
+}
+.atelier-statement h2 {
+  font-size: 58px;
+  margin-block: 25px;
+}
+.atelier-statement p:not(.eyebrow) {
+  font-size: 13px;
+  color: var(--muted);
+}
+.atelier-statement .text-link {
+  min-width: 220px;
+  margin-top: 25px;
+}
+.footer-invitation {
+  font-size: 48px;
+  line-height: 1.1;
+}
+.footer-invitation svg {
+  width: 32px;
+  height: 32px;
+  right: -60px;
+}
+.product-info h1 {
+  font-size: 54px;
+  line-height: 1.12;
+}
+.product-meta h3 {
+  font-size: 24px;
+}
+.cart-line h3 {
+  font-size: 25px;
+}
+.cart-content > h2 {
+  font-size: 42px;
+}
+.site-header .wordmark {
+  font-size: 21px;
+}
+.site-header .wordmark span {
+  font-size: 27px;
+}
+@media (max-width: 1000px) {
+  .campaign-heading h1 {
+    font-size: 54px;
+  }
+  .campaign-edit {
+    gap: 20px;
+  }
+  .campaign-edit .product-picture {
+    height: 340px;
+  }
+  .campaign-edit .product-meta {
+    display: block;
+  }
+  .campaign-edit .product-meta h3 {
+    font-size: 23px;
+  }
+  .product-info h1 {
+    font-size: 46px;
+  }
+}
+@media (max-width: 600px) {
+  .campaign-opening {
+    padding-top: 30px;
+  }
+  .campaign-heading {
+    margin-bottom: 25px;
+  }
+  .campaign-heading .eyebrow {
+    font-size: 8px;
+    margin-bottom: 18px;
+  }
+  .campaign-heading h1 {
+    font-size: 43px;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .campaign-heading h1 br {
+    display: block;
+  }
+  .campaign-heading p:last-child {
+    font-size: 11px;
+  }
+  .campaign-edit {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
+  .campaign-edit .product-card:first-child {
+    grid-column: 1/-1;
+  }
+  .campaign-edit .product-card:first-child .product-picture {
+    height: 360px;
+  }
+  .campaign-edit .product-picture {
+    height: 230px;
+  }
+  .campaign-edit .product-meta {
+    display: block;
+    margin-top: 14px;
+  }
+  .campaign-edit .product-meta h3 {
+    font-size: 21px;
+    line-height: 1.2;
+  }
+  .campaign-edit .product-card:first-child .product-meta {
+    display: flex;
+  }
+  .campaign-edit .product-card:first-child .product-meta > span {
+    margin-top: 0;
+  }
+  .campaign-edit .product-color {
+    font-size: 9px;
+  }
+  .campaign-footer {
+    display: block;
+    padding-bottom: 20px;
+    margin-top: 25px;
+  }
+  .campaign-footer .eyebrow {
+    display: block;
+    font-size: 8px;
+  }
+  .campaign-footer .text-link {
+    margin-top: 10px;
+    min-width: 225px;
+    font-size: 11px;
+  }
+  .atelier-statement {
+    padding-block: 60px;
+  }
+  .atelier-number {
+    font-size: 30px;
+  }
+  .atelier-statement h2 {
+    font-size: 43px;
+  }
+  .atelier-statement p:not(.eyebrow) {
+    font-size: 11px;
+  }
+  .footer-invitation {
+    font-size: 42px;
+  }
+  .product-info h1 {
+    font-size: 40px;
+    line-height: 1.15;
+  }
+  .site-header .wordmark {
+    font-size: 17px;
+  }
+  .site-header .wordmark span {
+    font-size: 23px;
+  }
+  .product-meta h3 {
+    font-size: 21px;
+  }
+  .cart-line h3 {
+    font-size: 24px;
+  }
+  .cart-content > h2 {
+    font-size: 40px;
   }
 }

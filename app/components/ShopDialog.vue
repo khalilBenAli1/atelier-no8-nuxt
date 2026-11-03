@@ -16,8 +16,7 @@ onMounted(sync);
     ref="dialog"
     :class="['shop-dialog', { drawer }]"
     :aria-label="title"
-    @cancel="emit('close')"
-    @close="emit('close')"
+    @cancel.prevent="emit('close')"
     @click="
       (event) => {
         if (event.target === event.currentTarget) emit('close');

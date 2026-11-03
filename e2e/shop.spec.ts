@@ -1,13 +1,38 @@
 import AxeBuilder from '@axe-core/playwright';
-import { test, expect, type Page } from '@playwright/test';
+import { test, expect, type Page, type Locator } from '@playwright/test';
+import { products } from '../data/products';
+const hydrationWarnings = new WeakMap<Page, string[]>();
 const dialog = (page: Page) =>
   page.getByRole('dialog', { name: 'Your bag', exact: true });
+async function tabTo(page: Page, target: Locator) {
+  // macOS Safari's native all-controls navigation is Option-Tab unless Full Keyboard Access is enabled.
+  const key =
+    process.platform === 'darwin' &&
+    page.context().browser()?.browserType().name() === 'webkit'
+      ? 'Alt+Tab'
+      : 'Tab';
+  for (let index = 0; index < 50; index++) {
+    if (await target.evaluate((element) => element === document.activeElement))
+      return;
+    await page.keyboard.press(key);
+  }
+  throw new Error('Control was not reachable with Tab.');
+}
 const openProduct = async (page: Page, id = 'form-shoulder') => {
   await page.goto('products/' + id + '/');
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
 };
 test.beforeEach(async ({ page }) => {
+  const warnings: string[] = [];
+  hydrationWarnings.set(page, warnings);
+  page.on('console', (message) => {
+    const text = message.text();
+    if (/hydration/i.test(text) && /mismatch/i.test(text)) warnings.push(text);
+  });
   await page.emulateMedia({ reducedMotion: 'reduce' });
+});
+test.afterEach(async ({ page }) => {
+  expect(hydrationWarnings.get(page) ?? []).toEqual([]);
 });
 test('collection filters and sort survive a static direct-link refresh', async ({
   page,
@@ -194,4 +219,64 @@ test('routes reflow at desktop/tablet/mobile and pass automated WCAG checks', as
       .analyze();
     expect(result.violations).toEqual([]);
   }
+});
+
+test('a keyboard user can complete the shopping journey without a pointer', async ({
+  page,
+}) => {
+  await openProduct(page);
+  await tabTo(
+    page,
+    page.getByRole('button', { name: 'Add to bag', exact: true }),
+  );
+  await page.keyboard.press('Enter');
+  const checkout = dialog(page).getByRole('link', {
+    name: 'Continue to demo checkout',
+  });
+  await expect(checkout).toBeVisible();
+  await tabTo(page, checkout);
+  await page.keyboard.press('Enter');
+  const sample = page.getByRole('button', {
+    name: 'Use sample details',
+    exact: true,
+  });
+  await expect(sample).toBeVisible();
+  await tabTo(page, sample);
+  await page.keyboard.press('Enter');
+  await tabTo(
+    page,
+    page.getByRole('checkbox', {
+      name: /I understand this is a simulated order/,
+    }),
+  );
+  await page.keyboard.press('Space');
+  await tabTo(
+    page,
+    page.getByRole('button', { name: 'Review demo order', exact: true }),
+  );
+  await page.keyboard.press('Enter');
+  await tabTo(
+    page,
+    page.getByRole('button', { name: 'Complete demo order', exact: true }),
+  );
+  await page.keyboard.press('Enter');
+  await expect(
+    page.getByRole('heading', { level: 1, name: /Imagine it’s/ }),
+  ).toBeFocused();
+});
+
+test('all products have real prerendered HTML and unknown routes have a deliberate 404', async ({
+  page,
+  request,
+}) => {
+  for (const product of products) {
+    const response = await request.get('products/' + product.slug + '/');
+    expect(response.status()).toBe(200);
+    expect(await response.text()).toContain('<h1>' + product.name + '</h1>');
+  }
+  const response = await page.goto('not-a-piece/');
+  expect(response?.status()).toBe(404);
+  await expect(
+    page.getByRole('heading', { level: 1, name: /A little off the path/ }),
+  ).toBeVisible();
 });

@@ -19,9 +19,12 @@ for (const [name, width, height, path, bag] of [
   });
   const page = await context.newPage();
   const errors = [];
+  const hydrationWarnings = [];
   page.on('pageerror', (e) => errors.push(e.message));
   page.on('console', (m) => {
     if (m.type() === 'error') errors.push(m.text());
+    if (/hydration/i.test(m.text()) && /mismatch/i.test(m.text()))
+      hydrationWarnings.push(m.text());
   });
   const base =
     process.env.DEMO_URL || 'http://127.0.0.1:4182/atelier-no8-nuxt/';
@@ -48,6 +51,7 @@ for (const [name, width, height, path, bag] of [
     width,
     height,
     errors,
+    hydrationWarnings,
     overflow: await page.evaluate(
       () => document.documentElement.scrollWidth > window.innerWidth,
     ),

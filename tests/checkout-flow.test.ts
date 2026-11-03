@@ -1,8 +1,16 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import { createPinia, setActivePinia } from 'pinia';
 import { useCheckout } from '../app/composables/useCheckout';
+import { useCartStore } from '../app/stores/cart';
 beforeEach(() => setActivePinia(createPinia()));
 describe('checkout transitions', () => {
+  it('isolates bag state between separate application instances', () => {
+    const first = useCartStore(createPinia());
+    const second = useCartStore(createPinia());
+    first.add('line-wallet', 'small', 1);
+    expect(first.totals.count).toBe(1);
+    expect(second.totals.count).toBe(0);
+  });
   it('rejects empty bags and invalid details before review or confirmation', () => {
     const flow = useCheckout();
     flow.finish();
