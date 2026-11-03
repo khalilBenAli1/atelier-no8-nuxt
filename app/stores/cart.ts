@@ -1,3 +1,8 @@
+import {
+  readCart,
+  writeCart,
+  type CartStorage,
+} from '../../adapters/cartStorage';
 import { computed, ref } from 'vue';
 import { defineStore } from 'pinia';
 import {
@@ -6,16 +11,11 @@ import {
   cartTotals,
   changeQuantity,
   itemKey,
-  readCart,
-  writeCart,
   type CartItem,
-  type CartStorage,
 } from '../../lib/cart';
 export const useCartStore = defineStore('cart', () => {
   const items = ref<CartItem[]>([]);
   const ready = ref(false);
-  const open = ref(false);
-  const notice = ref('');
   let storage: CartStorage | null = null;
   const lines = computed(() => cartLines(items.value));
   const totals = computed(() => cartTotals(items.value));
@@ -33,8 +33,6 @@ export const useCartStore = defineStore('cart', () => {
     if (result.error) return result.error;
     items.value = result.items;
     save();
-    notice.value = 'Added to your bag.';
-    open.value = true;
     return '';
   }
   function update(key: string, quantity: number) {
@@ -43,19 +41,15 @@ export const useCartStore = defineStore('cart', () => {
   }
   function remove(key: string) {
     items.value = items.value.filter((item) => itemKey(item) !== key);
-    notice.value = 'Item removed from your bag.';
     save();
   }
   function clear() {
     items.value = [];
-    notice.value = 'Your bag has been cleared.';
     save();
   }
   return {
     items,
     ready,
-    open,
-    notice,
     lines,
     totals,
     hydrate,

@@ -2,7 +2,9 @@
 import { ref, watch } from 'vue';
 import { useRoute } from '#imports';
 import { useCartStore } from '../stores/cart';
+import { useBagDrawer } from '../composables/useBagDrawer';
 const cart = useCartStore();
+const drawer = useBagDrawer();
 const menu = ref(false);
 const route = useRoute();
 watch(
@@ -33,7 +35,7 @@ const skip = () => document.getElementById('main')?.focus();
       ><button
         class="bag-trigger icon-button"
         :aria-label="'Open your bag, ' + cart.totals.count + ' items'"
-        @click="cart.open = true"
+        @click="drawer.show()"
       >
         <ShopIcon name="bag" /><span>{{ cart.totals.count }}</span></button
       ><button

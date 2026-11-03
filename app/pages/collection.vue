@@ -1,38 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import { useRoute, useRouter, useHead } from '#imports';
-import { products, money } from '../../data/products';
-const route = useRoute();
-const router = useRouter();
-const text = (key: string) =>
-  typeof route.query[key] === 'string' ? String(route.query[key]) : '';
-const category = computed(() => text('category'));
-const query = computed(() => text('q'));
-const sort = computed(() => text('sort'));
-const maxPrice = computed(() => {
-  const p = Number(text('max'));
-  return p >= 5000 && p <= 35000 ? p : 35000;
-});
-const matching = computed(() => {
-  const list = products.filter(
-    (p) =>
-      (!category.value || p.category === category.value) &&
-      p.price <= maxPrice.value &&
-      (!query.value ||
-        `${p.name} ${p.color} ${p.category}`
-          .toLowerCase()
-          .includes(query.value.toLowerCase())),
-  );
-  if (sort.value === 'price-asc') list.sort((a, b) => a.price - b.price);
-  if (sort.value === 'price-desc') list.sort((a, b) => b.price - a.price);
-  return list;
-});
-const change = (key: string, value: string) => {
-  const next = { ...route.query };
-  if (!value) delete next[key];
-  else next[key] = value;
-  void router.replace({ query: next });
-};
+import { useHead } from '#imports';
+import { money } from '../../data/products';
+import { useCatalogFilters } from '../composables/useCatalogFilters';
+const { category, query, sort, maxPrice, matching, change, reset } =
+  useCatalogFilters();
 const value = (event: Event) => (event.target as HTMLInputElement).value;
 useHead({ title: 'The collection — Atelier No.8' });
 </script>
@@ -90,8 +61,7 @@ useHead({ title: 'The collection — Atelier No.8' });
           step="1000"
           :value="maxPrice"
           @input="change('max', value($event))" /></label
-      ><button class="plain-link" @click="router.replace('/collection')">
-        Reset filters</button
+      ><button class="plain-link" @click="reset()">Reset filters</button
       ><label class="sort-select"
         >Sort
         <select
@@ -117,7 +87,7 @@ useHead({ title: 'The collection — Atelier No.8' });
       <p class="eyebrow">A little room to reconsider</p>
       <h2>Another way<br /><em>to find your piece.</em></h2>
       <p>Try a different search, category or budget.</p>
-      <button class="button" @click="router.replace('/collection')">
+      <button class="button" @click="reset()">
         Explore all pieces <ShopIcon name="arrow" />
       </button>
     </div>

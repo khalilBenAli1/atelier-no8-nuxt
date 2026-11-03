@@ -1,11 +1,10 @@
+import { readCart, writeCart } from '../adapters/cartStorage';
 import { describe, expect, it } from 'vitest';
 import {
   addToCart,
   cartTotals,
   changeQuantity,
   normalizeCart,
-  readCart,
-  writeCart,
 } from '../lib/cart';
 describe('bag rules', () => {
   it('merges a product/size and preserves a separate size', () => {
