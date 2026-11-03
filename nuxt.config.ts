@@ -30,7 +30,7 @@ export default defineNuxtConfig({
   typescript: { strict: true },
   nitro: {
     prerender: {
-      crawlLinks: true,
+      crawlLinks: false,
       routes: [
         '/',
         '/collection',
