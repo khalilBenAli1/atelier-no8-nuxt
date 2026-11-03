@@ -36,10 +36,22 @@ for (const [name, width, height, path, bag] of [
       .getByRole('link', { name: 'Continue to demo checkout' })
       .click();
   } else await page.goto(base + path);
-  await page.getByRole('heading', { level: 1 }).waitFor();
+  if (path === 'checkout/')
+    await page.getByRole('heading', { level: 1, name: /Your next/ }).waitFor();
+  else await page.getByRole('heading', { level: 1 }).waitFor();
   await page.evaluate(() => document.fonts.ready);
-  if (bag)
+  if (bag) {
     await page.getByRole('button', { name: 'Add to bag', exact: true }).click();
+    await page.getByRole('dialog', { name: 'Your bag', exact: true }).waitFor();
+  }
+  await page.waitForFunction(() =>
+    [...document.images]
+      .filter((image) => {
+        const box = image.getBoundingClientRect();
+        return box.top < innerHeight && box.bottom > 0 && box.width > 0;
+      })
+      .every((image) => image.complete && image.naturalWidth > 0),
+  );
   await page.screenshot({
     path: 'docs/screenshots/' + name + '.jpg',
     type: 'jpeg',
@@ -48,6 +60,7 @@ for (const [name, width, height, path, bag] of [
   });
   report.push({
     name,
+    sourceBaseURL: base,
     width,
     height,
     errors,

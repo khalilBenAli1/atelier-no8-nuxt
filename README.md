@@ -4,7 +4,9 @@ A considered accessories storefront, built with **Nuxt 4, Vue, TypeScript and Pi
 
 ![The centered Atelier collection campaign](docs/screenshots/home-desktop.jpg)
 
-Public demo publication is awaiting the release workflow. The source and all product photography are self-contained.
+[Live demo](https://khalilbenali1.github.io/atelier-no8-nuxt/) · [Source](https://github.com/khalilBenAli1/atelier-no8-nuxt)
+
+The source and all product photography are self-contained.
 
 ## Explore the shop
 

@@ -27,3 +27,9 @@ The published output is static HTML/CSS/JavaScript/images/fonts. No Node/Nitro s
 ## Limits
 
 This is a finite fixture shop with local state. It does not implement payments, real inventory, fulfillment, accounts, email delivery or real commerce policies. Automated checks support manual inspection; no Lighthouse score, screen-reader certification or real commercial performance claim is made.
+
+## Public deployment
+
+Verified on 2026-11-03 at https://khalilbenali1.github.io/atelier-no8-nuxt/ after the passing [Pages release workflow](https://github.com/khalilBenAli1/atelier-no8-nuxt/actions/runs/41569965587).
+
+Anonymous HTTP returned 200. All 7 Chromium browser scenarios passed against the actual public site with retries disabled, covering all 8 product HTML routes, deliberate 404 behavior, rapid URL filters, persistent bag, checkout reload/privacy, long-text wrapping, gallery/menu keyboard behavior, a complete keyboard-only checkout and automated accessibility checks. All 8 actual public-site capture cases report zero runtime errors, hydration-mismatch warnings, failed images and horizontal overflow.

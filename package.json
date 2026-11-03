@@ -14,7 +14,15 @@
     "test": "vitest run",
     "test:e2e": "playwright test"
   },
-  "keywords": [],
+  "keywords": [
+    "nuxt",
+    "vue",
+    "typescript",
+    "pinia",
+    "ecommerce",
+    "portfolio",
+    "github-pages"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
@@ -45,5 +53,10 @@
   "engines": {
     "node": ">=22.23.1 <23"
   },
-  "packageManager": "npm@10.9.8"
+  "packageManager": "npm@10.9.8",
+  "homepage": "https://khalilbenali1.github.io/atelier-no8-nuxt/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khalilBenAli1/atelier-no8-nuxt.git"
+  }
 }

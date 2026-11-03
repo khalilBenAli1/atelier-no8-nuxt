@@ -1,0 +1,15 @@
+{
+  "verifiedDate": "2026-11-03",
+  "url": "https://khalilbenali1.github.io/atelier-no8-nuxt/",
+  "anonymousHTTPStatus": 200,
+  "sourceMergeCommit": "269e45a8b05561fa7486f677d6b1209312749221",
+  "releaseWorkflow": "https://github.com/khalilBenAli1/atelier-no8-nuxt/actions/runs/41569965587",
+  "publicBrowserProfile": "Chromium",
+  "publicScenariosPassed": 7,
+  "testRetries": 0,
+  "prerenderedProductRoutesVerified": 8,
+  "deliberate404": "pass",
+  "keyboardCheckout": "pass",
+  "hydrationMismatchWarnings": 0,
+  "publicCaptureCases": 8
+}

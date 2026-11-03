@@ -20,3 +20,9 @@ Started 2026-11-03. Original fictional retail app, based on the approved ivory/m
 ## Bounded architecture pass (after working milestone c508578)
 
 Behavior is protected by 7 domain tests and 5 passing Chromium journeys before this pass. Preserve approved CSS and actual screenshots. Extract product gallery/purchase, checkout details/review/summary/confirmation, and bag rows around responsibilities; move route-to-domain bridges into typed composables. Keep the Pinia store focused on bag data, local drawer/form state outside it, and persistence in an adapter. Rerun all existing journeys plus cross-engine tests after extraction. No unrelated redesign or new framework.
+
+## Delivered
+
+Published and publicly verified 2026-11-03: https://khalilbenali1.github.io/atelier-no8-nuxt/
+
+PR#1 was merged with milestone history preserved. The main release workflow passed strict checks, 12 unit/store tests and 21 browser cases before deployment; 7 Chromium journeys then passed against the actual public site. Actual deployed desktop/mobile screenshots are in docs/screenshots. The repository homepage and README use the verified demo URL.
