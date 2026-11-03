@@ -14,6 +14,7 @@ A clean `npm ci` also passed with project `legacy-peer-deps=false`, followed by 
 - Contact data remains outside storage; confirmation remains unchanged after bag clearing.
 - Vue/Nuxt hydration-mismatch warning assertions: zero across browser journeys, including product and checkout reload behavior.
 - Actual screenshot capture: eight cases, no runtime console errors, hydration-mismatch warnings, failed images or horizontal overflow.
+- Long unbroken valid names/emails wrap inside narrow review and confirmation layouts. A failing mobile regression was reproduced before the focused fix. Overflow checks use the fixed layout clientWidth rather than mobile innerWidth expansion.
 - Reflow: 390, 768 and 1440px. Automated WCAG A/AA scan: no findings on the tested main routes.
 
 ## Dependency audit

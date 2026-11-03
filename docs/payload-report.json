@@ -6,8 +6,8 @@
   },
   "css": {
     "files": 1,
-    "bytes": 26316,
-    "gzipBytes": 5866
+    "bytes": 26392,
+    "gzipBytes": 5889
   },
   "fonts": {
     "files": 4,
@@ -17,6 +17,6 @@
     "files": 18,
     "bytes": 2175570
   },
-  "totalStaticBytes": 2676997,
+  "totalStaticBytes": 2677073,
   "measurement": "Built artifact sizes; gzip is an offline estimate, not a Lighthouse score or measured live transfer."
 }

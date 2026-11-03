@@ -129,6 +129,13 @@ test('checkout validates contact and completes an immutable local confirmation w
   await page
     .getByRole('button', { name: 'Use sample details', exact: true })
     .click();
+  await expect(page.getByLabel('Your name', { exact: true })).toHaveValue(
+    'Alex Morgan',
+  );
+  const longName = 'A'.repeat(90);
+  const longEmail = 'a'.repeat(60) + '@example.com';
+  await page.getByLabel('Your name', { exact: true }).fill(longName);
+  await page.getByLabel('Email address', { exact: true }).fill(longEmail);
   await page
     .getByRole('checkbox', { name: /I understand this is a simulated order/ })
     .check();
@@ -138,6 +145,13 @@ test('checkout validates contact and completes an immutable local confirmation w
   await expect(
     page.getByRole('heading', { name: 'One last look.', exact: true }),
   ).toBeFocused();
+  expect(
+    await page.evaluate(
+      () =>
+        document.documentElement.scrollWidth <=
+        document.documentElement.clientWidth,
+    ),
+  ).toBe(true);
   await expect(
     page
       .getByRole('complementary')
@@ -149,12 +163,21 @@ test('checkout validates contact and completes an immutable local confirmation w
   );
   expect(stored).not.toContain('Alex');
   expect(stored).not.toContain('email');
+  expect(stored).not.toContain(longName);
+  expect(stored).not.toContain(longEmail);
   await page
     .getByRole('button', { name: 'Complete demo order', exact: true })
     .click();
   await expect(
     page.getByRole('heading', { level: 1, name: /Imagine it’s/ }),
   ).toBeFocused();
+  expect(
+    await page.evaluate(
+      () =>
+        document.documentElement.scrollWidth <=
+        document.documentElement.clientWidth,
+    ),
+  ).toBe(true);
   await expect(
     page.getByText(/No order was placed, no payment was taken/),
   ).toBeVisible();
@@ -216,7 +239,9 @@ test('routes reflow at desktop/tablet/mobile and pass automated WCAG checks', as
       await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
       expect(
         await page.evaluate(
-          () => document.documentElement.scrollWidth <= window.innerWidth,
+          () =>
+            document.documentElement.scrollWidth <=
+            document.documentElement.clientWidth,
         ),
       ).toBe(true);
     }

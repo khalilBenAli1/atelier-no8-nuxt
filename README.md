@@ -67,6 +67,6 @@ GitHub Actions installs with `npm ci`, runs the same quality checks and browser 
 - [Measured build payload](docs/payload-report.json)
 - [Verification and tooling notes](docs/VERIFICATION.md)
 
-The complete generated artifact is about 2.68 MB, including all images and route HTML. All eight client JavaScript chunks total 244,200 bytes, about 92,505 bytes with offline gzip; four WOFF2 subsets total 63,620 bytes. These are artifact measurements, not a Lighthouse score or a live-transfer claim.
+The complete generated artifact is about 2.68 MB, including all images and route HTML. Detailed JavaScript, CSS, WOFF2 and image measurements are kept in the payload report. Gzip values are offline estimates, not a Lighthouse score or live-transfer claim.
 
 Original code is MIT-licensed. Font licenses and generated-artwork provenance remain separate; see [ASSETS.md](ASSETS.md).

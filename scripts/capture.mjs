@@ -53,7 +53,9 @@ for (const [name, width, height, path, bag] of [
     errors,
     hydrationWarnings,
     overflow: await page.evaluate(
-      () => document.documentElement.scrollWidth > window.innerWidth,
+      () =>
+        document.documentElement.scrollWidth >
+        document.documentElement.clientWidth,
     ),
     imageFailures: await page
       .locator('img')

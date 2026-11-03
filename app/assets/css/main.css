@@ -1998,3 +1998,9 @@ details p {
     font-size: 40px;
   }
 }
+
+.review-details dd,
+.order-confirmation > p {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
