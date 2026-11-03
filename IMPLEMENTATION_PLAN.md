@@ -16,3 +16,7 @@ Started 2026-11-03. Original fictional retail app, based on the approved ivory/m
 - Domain tests cover merged quantities, separate variants, stock/quantity bounds, exact cents totals, malformed/old/oversized storage and checkout validation.
 - Browser evidence covers filters after reload, add twice, separate sizes, quantity/remove/reload, empty/sold-out states, complete demo order, Escape/focus restoration, mobile navigation, 390/768/1440px reflow, automated accessibility scans.
 - Exact package versions are locked. CI installs with npm ci and runs lint/format/type/unit/build/browser checks before Pages deployment.
+
+## Bounded architecture pass (after working milestone c508578)
+
+Behavior is protected by 7 domain tests and 5 passing Chromium journeys before this pass. Preserve approved CSS and actual screenshots. Extract product gallery/purchase, checkout details/review/summary/confirmation, and bag rows around responsibilities; move route-to-domain bridges into typed composables. Keep the Pinia store focused on bag data, local drawer/form state outside it, and persistence in an adapter. Rerun all existing journeys plus cross-engine tests after extraction. No unrelated redesign or new framework.

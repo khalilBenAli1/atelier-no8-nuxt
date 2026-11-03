@@ -1,0 +1,74 @@
+[
+  {
+    "name": "home-desktop",
+    "width": 1440,
+    "height": 1000,
+    "errors": [],
+    "hydrationWarnings": [],
+    "overflow": false,
+    "imageFailures": []
+  },
+  {
+    "name": "home-mobile",
+    "width": 390,
+    "height": 844,
+    "errors": [],
+    "hydrationWarnings": [],
+    "overflow": false,
+    "imageFailures": []
+  },
+  {
+    "name": "collection-desktop",
+    "width": 1440,
+    "height": 1000,
+    "errors": [],
+    "hydrationWarnings": [],
+    "overflow": false,
+    "imageFailures": []
+  },
+  {
+    "name": "product-desktop",
+    "width": 1440,
+    "height": 1000,
+    "errors": [],
+    "hydrationWarnings": [],
+    "overflow": false,
+    "imageFailures": []
+  },
+  {
+    "name": "product-mobile",
+    "width": 390,
+    "height": 844,
+    "errors": [],
+    "hydrationWarnings": [],
+    "overflow": false,
+    "imageFailures": []
+  },
+  {
+    "name": "bag-mobile",
+    "width": 390,
+    "height": 844,
+    "errors": [],
+    "hydrationWarnings": [],
+    "overflow": false,
+    "imageFailures": []
+  },
+  {
+    "name": "checkout-desktop",
+    "width": 1440,
+    "height": 1000,
+    "errors": [],
+    "hydrationWarnings": [],
+    "overflow": false,
+    "imageFailures": []
+  },
+  {
+    "name": "checkout-mobile",
+    "width": 390,
+    "height": 844,
+    "errors": [],
+    "hydrationWarnings": [],
+    "overflow": false,
+    "imageFailures": []
+  }
+]
