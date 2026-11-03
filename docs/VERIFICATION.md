@@ -2,6 +2,8 @@
 
 Verified locally on 2026-11-03 with Node 22.23.1 / npm 10.9.8.
 
+A clean `npm ci` also passed with project `legacy-peer-deps=false`, followed by lint/format/type/unit checks. The lockfile required no rewrite; local installs no longer inherit a conflicting global peer policy.
+
 - ESLint and Prettier checks: pass, no findings.
 - Nuxt strict TypeScript check: pass.
 - Vitest: 5 files, 12 passing tests.
@@ -16,7 +18,7 @@ Verified locally on 2026-11-03 with Node 22.23.1 / npm 10.9.8.
 
 ## Dependency audit
 
-The installed stable lockfile's `npm audit` reports 18 transitive findings: 4 low and 14 moderate, with zero high or critical. The root advisories involve `deepmerge`, `glob` and `minimatch`, inherited through Nuxt's build tooling and ESLint. Compatible `npm audit fix` makes no changes; its forced suggestions downgrade current major tooling, so they were not applied.
+Under the standard peer policy, the installed stable lockfile's `npm audit` reports 26 transitive findings: 4 low and 22 moderate, with zero high or critical. The root advisories involve `deepmerge`, `glob` and `minimatch`, inherited through Nuxt's build tooling and ESLint. The audit's forced suggestions downgrade current major tooling, so they were not applied.
 
 The published output is static HTML/CSS/JavaScript/images/fonts. No Node/Nitro server or public build service is deployed, and storefront input is not used as filesystem/glob configuration. Re-check the advisory state before changing the hosting model or upgrading tooling. Do not describe this lockfile as vulnerability-free.
 

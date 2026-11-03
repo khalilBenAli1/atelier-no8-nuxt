@@ -3,6 +3,7 @@
 Independent original fictional accessories shop. Do not copy private client work.
 
 - Node 22.23.1, npm 10.9.8. `npm ci` installs from the lockfile.
+- Project `.npmrc` pins `legacy-peer-deps=false` so local and CI installs use the same peer policy. Do not change global npm configuration.
 - Commands: `npm run dev`, `npm run lint`, `npm run format:check`, `npm run typecheck`, `npm test`, `npm run test:e2e`, `npm run build`, `npm run preview`.
 - Nuxt 4 pages/components live in `app/`; pure product/cart/validation rules in `lib/`; product fixtures in `data/`.
 - Money is integer euro cents. Cart identity includes product and size variant; never exceed variant stock.
