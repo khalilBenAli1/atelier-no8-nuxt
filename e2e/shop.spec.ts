@@ -43,10 +43,20 @@ test('collection filters and sort survive a static direct-link refresh', async (
     .click();
   await expect(page).toHaveURL(/category=Small/);
   await expect(page.getByRole('article')).toHaveCount(3);
-  await page.getByRole('searchbox', { name: 'Search products' }).fill('wallet');
   await page
-    .getByRole('combobox', { name: 'Sort products' })
-    .selectOption('price-asc');
+    .getByRole('searchbox', { name: 'Search products' })
+    .evaluate((input) => {
+      const sort = document.querySelector('select[aria-label="Sort products"]');
+      if (
+        !(input instanceof HTMLInputElement) ||
+        !(sort instanceof HTMLSelectElement)
+      )
+        throw new Error('Catalog controls are missing.');
+      input.value = 'wallet';
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+      sort.value = 'price-asc';
+      sort.dispatchEvent(new Event('change', { bubbles: true }));
+    });
   await expect(page).toHaveURL(/q=wallet/);
   await expect(page).toHaveURL(/sort=price-asc/);
   await page.reload();

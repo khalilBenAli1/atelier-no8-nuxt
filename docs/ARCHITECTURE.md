@@ -5,6 +5,7 @@ Nuxt statically generates the homepage, collection, story, checkout and all eigh
 - `app/pages` composes route content. Product and checkout pages delegate their interactive features to focused components.
 - `app/components` separates gallery, purchase controls, quantity control, bag line/drawer, checkout details/review/summary and order confirmation. The same CSS classes preserve the approved composition.
 - `app/composables` bridges framework state to behavior: URL filters, product selection, checkout transitions and a scoped drawer trigger.
+- The catalog URL bridge serializes updates against the router's committed query. Rapid search and sort actions preserve each other's parameters, including before a reload.
 - `lib` contains pure catalog, cart, pricing and validation rules. It has no browser storage or Vue dependency.
 - `data/products.ts` is the finite typed fixture catalogue. Prices are integer euro cents; stock belongs to each product/size pair.
 - `adapters/cartStorage.ts` alone reads/writes the versioned bag schema, with size limits, identifier validation, duplicate merging, stock clamping and corruption/blocked-storage recovery.

@@ -2,6 +2,7 @@ import { computed } from 'vue';
 import { useRoute, useRouter } from '#imports';
 import { products } from '../../data/products';
 import { parseCatalogFilters, filterCatalog } from '../../lib/catalog';
+import type { NavigationFailure } from 'vue-router';
 export function useCatalogFilters() {
   const route = useRoute();
   const router = useRouter();
@@ -13,12 +14,20 @@ export function useCatalogFilters() {
   );
   const maxPrice = computed(() => filters.value.maxPrice);
   const matching = computed(() => filterCatalog(products, filters.value));
-  const change = (key: string, value: string) => {
-    const next = { ...route.query };
-    if (!value) delete next[key];
-    else next[key] = value;
-    void router.replace({ query: next });
+  let pending: Promise<NavigationFailure | void> = Promise.resolve();
+  const navigate = (operation: () => Promise<NavigationFailure | void>) => {
+    const request = pending.then(operation);
+    // Keep later actions usable after a rejected navigation; callers still receive the original rejection.
+    pending = request.catch(() => undefined);
+    return request;
   };
-  const reset = () => router.replace('/collection');
+  const change = (key: string, value: string) =>
+    navigate(() => {
+      const next = { ...router.currentRoute.value.query };
+      if (!value) delete next[key];
+      else next[key] = value;
+      return router.replace({ query: next });
+    });
+  const reset = () => navigate(() => router.replace('/collection'));
   return { category, query, sort, maxPrice, matching, change, reset };
 }

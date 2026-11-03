@@ -8,6 +8,7 @@ A clean `npm ci` also passed with project `legacy-peer-deps=false`, followed by 
 - Nuxt strict TypeScript check: pass.
 - Vitest: 5 files, 12 passing tests.
 - Playwright: 7 scenarios × desktop Chromium, mobile Chromium and WebKit = 21 passing cases.
+- Rapid search/sort events are dispatched in the same turn to guard against dropped URL parameters. The affected WebKit journey also passed 10 repeated runs with retries disabled; the release configuration allows no test retries.
 - Static generation: homepage, collection, story, checkout, eight product routes and framework fallback documents.
 - All eight product routes contain their actual product heading in prerendered HTML. Unknown routes return a deliberate 404.
 - Keyboard-only discovery-to-confirmation journey: pass. Dialog Escape/focus restoration and rapid reopen: pass.
