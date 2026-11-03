@@ -105,6 +105,20 @@ test('checkout validates contact and completes an immutable local confirmation w
   await dialog(page)
     .getByRole('link', { name: 'Continue to demo checkout' })
     .click();
+  await page.getByLabel('Your name', { exact: true }).fill('Temporary Sample');
+  await page
+    .getByLabel('Email address', { exact: true })
+    .fill('temporary@example.com');
+  await page.reload();
+  await expect(page.getByLabel('Your name', { exact: true })).toHaveValue('');
+  await expect(page.getByLabel('Email address', { exact: true })).toHaveValue(
+    '',
+  );
+  await expect(
+    page
+      .getByRole('complementary')
+      .getByRole('heading', { name: 'The Form Shoulder', exact: true }),
+  ).toBeVisible();
   await page
     .getByRole('button', { name: 'Review demo order', exact: true })
     .click();
